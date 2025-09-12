@@ -1,17 +1,23 @@
 import { Canvas } from "@react-three/fiber";
-import { Sphere, MeshDistortMaterial, OrbitControls } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Suspense } from "react";
+useGLTF.preload("/models/house.glb");
 
 function App() {
+  const { scene } = useGLTF("/models/house.glb");
+
   return (
-    <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+    <Canvas camera={{ position: [7, 8, 15], fov: 50 }}>
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} />
 
-      <Sphere args={[1, 64, 64]} scale={2}>
-        <MeshDistortMaterial color="hotpink" distort={0.3} speed={2} />
-      </Sphere>
-
-      <OrbitControls />
+      <Suspense>
+        <primitive
+          position={[0, 0, 0]}
+          rotation={[0, -Math.PI / 2, 0]}
+          object={scene}
+        />
+      </Suspense>
     </Canvas>
   );
 }
