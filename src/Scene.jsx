@@ -5,7 +5,7 @@ import { Suspense } from "react";
 
 useGLTF.preload("/models/house.glb");
 export function Scene() {
-  const { scene } = useGLTF("/models/house.glb");
+  const { scene } = useGLTF("/models/house1.glb");
   // const { camera } = useThree();
 
   // Leva controls for camera position
@@ -19,12 +19,10 @@ export function Scene() {
 
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[5, 5, 5]} />
+      <ambientLight intensity={0.05} />
+      <directionalLight position={[5, 5, 5]} intensity={0.05} />
 
-      <Suspense fallback={null}>
-        <primitive object={scene} rotation={[0, -Math.PI / 2, 0]} />
-      </Suspense>
+      <primitive object={scene} rotation={[0, -Math.PI / 2, 0]} />
     </>
   );
 }
