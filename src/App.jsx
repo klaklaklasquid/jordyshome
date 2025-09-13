@@ -11,7 +11,7 @@ export default function App() {
         <Environment
           files="/background/background.hdr"
           background
-          backgroundIntensity={0.3}
+          backgroundIntensity={0.15}
           backgroundRotation={[0, Math.PI / 1.4, 0]}
         />
       </Suspense>

@@ -1,5 +1,4 @@
 import { useGLTF } from "@react-three/drei";
-import { Suspense } from "react";
 // import { useThree } from "@react-three/fiber";
 // import { useControls } from "leva";
 
@@ -17,12 +16,5 @@ export function Scene() {
 
   // camera.position.set(camX, camY, camZ);
 
-  return (
-    <>
-      <ambientLight intensity={0.05} />
-      <directionalLight position={[5, 5, 5]} intensity={0.05} />
-
-      <primitive object={scene} rotation={[0, -Math.PI / 2, 0]} />
-    </>
-  );
+  return <primitive object={scene} rotation={[0, -Math.PI / 2, 0]} />;
 }
