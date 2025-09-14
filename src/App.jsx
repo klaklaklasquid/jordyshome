@@ -1,11 +1,11 @@
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
-import { Scene } from "./Scene";
 import { Suspense } from "react";
+import Scene from "./Scene";
 
 export default function App() {
   return (
-    <Canvas camera={{ position: [7, 6, 15], fov: 50 }}>
+    <Canvas camera={{ position: [7, 6, 15], fov: 60 }}>
       <Suspense>
         <Scene />
         <Environment

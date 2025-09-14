@@ -1,20 +1,33 @@
 import { useGLTF } from "@react-three/drei";
-// import { useThree } from "@react-three/fiber";
-// import { useControls } from "leva";
+import { Suspense, useEffect } from "react";
+import * as THREE from "three";
 
-useGLTF.preload("/models/house.glb");
-export function Scene() {
-  const { scene } = useGLTF("/models/house1.glb");
-  // const { camera } = useThree();
+useGLTF.preload("/models/house3.glb");
 
-  // Leva controls for camera position
-  // const { camX, camY, camZ } = useControls({
-  //   camX: { value: camera.position.x, min: -20, max: 20 },
-  //   camY: { value: camera.position.y, min: -20, max: 20 },
-  //   camZ: { value: camera.position.z, min: -50, max: 50 },
-  // });
+function Scene() {
+  const { scene } = useGLTF("/models/house3.glb");
 
-  // camera.position.set(camX, camY, camZ);
+  useEffect(() => {
+    scene.traverse((obj) => {
+      if (obj.isMesh) {
+        if (obj.material?.map) {
+          obj.material.map.encoding = THREE.sRGBEncoding;
+          obj.material.map.needsUpdate = true;
+        }
+        obj.castShadow = true;
+        obj.receiveShadow = true;
+      }
+    });
+  }, [scene]);
 
-  return <primitive object={scene} rotation={[0, -Math.PI / 2, 0]} />;
+  return (
+    <primitive
+      object={scene}
+      position={[0, 0, 0]}
+      rotation={[0, -Math.PI / 2, 0]}
+      scale={1}
+    />
+  );
 }
+
+export default Scene;
