@@ -1,24 +1,9 @@
 import { useGLTF } from "@react-three/drei";
-import { Suspense, useEffect } from "react";
-import * as THREE from "three";
 
-useGLTF.preload("/models/house4.glb");
+useGLTF.preload("/models/house8.glb");
 
 function Scene() {
-  const { scene } = useGLTF("/models/house7.glb");
-
-  useEffect(() => {
-    scene.traverse((obj) => {
-      if (obj.isMesh) {
-        if (obj.material?.map) {
-          obj.material.map.encoding = THREE.sRGBEncoding;
-          obj.material.map.needsUpdate = true;
-        }
-        obj.castShadow = true;
-        obj.receiveShadow = true;
-      }
-    });
-  }, [scene]);
+  const { scene } = useGLTF("/models/house8.glb");
 
   return (
     <primitive
