@@ -1,9 +1,10 @@
 import { useGLTF } from "@react-three/drei";
 
-useGLTF.preload("/models/house8.glb");
+const model = "/models/house11.glb";
+useGLTF.preload(model);
 
 function Scene() {
-  const { scene } = useGLTF("/models/house8.glb");
+  const { scene } = useGLTF(model);
 
   return (
     <primitive
