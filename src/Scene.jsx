@@ -2,10 +2,10 @@ import { useGLTF } from "@react-three/drei";
 import { Suspense, useEffect } from "react";
 import * as THREE from "three";
 
-useGLTF.preload("/models/house3.glb");
+useGLTF.preload("/models/house4.glb");
 
 function Scene() {
-  const { scene } = useGLTF("/models/house3.glb");
+  const { scene } = useGLTF("/models/house7.glb");
 
   useEffect(() => {
     scene.traverse((obj) => {
