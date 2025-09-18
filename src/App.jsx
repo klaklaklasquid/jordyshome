@@ -4,6 +4,7 @@ import { Suspense, useState } from "react";
 // import { Perf } from "r3f-perf";
 import Scene from "./Scene";
 import CameraUpdater from "./helper/CameraUpdater";
+import CameraSmooth from "./helper/CameraSmooth";
 
 export default function App() {
   const [cameraAngles, setCameraAngles] = useState({
@@ -32,7 +33,10 @@ export default function App() {
           backgroundRotation={[0, Math.PI / 1.4, 0]}
         />
       </Suspense>
+
       <CameraUpdater cameraAngles={cameraAngles} />
+
+      <CameraSmooth />
       <OrbitControls enabled={false} />
     </Canvas>
   );

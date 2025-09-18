@@ -5,7 +5,7 @@ function Scene({ setCameraAngles }) {
   const handleEnterHouseClick = () => {
     setCameraAngles({
       x: -1,
-      y: 1.5,
+      y: 2,
       z: 25,
     });
   };
