@@ -1,11 +1,14 @@
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
 import { Suspense } from "react";
+import { Perf } from "r3f-perf";
 import Scene from "./Scene";
 
 export default function App() {
   return (
-    <Canvas camera={{ position: [12, 7, 25], fov: 30 }}>
+    <Canvas camera={{ position: [10, 3.5, 25], fov: 30 }}>
+      <Perf position="top-left" />
+
       <Suspense>
         <Scene />
         <Environment
