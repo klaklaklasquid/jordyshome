@@ -1,16 +1,29 @@
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
-import { Suspense } from "react";
-import { Perf } from "r3f-perf";
+import { Suspense, useState } from "react";
+// import { Perf } from "r3f-perf";
 import Scene from "./Scene";
+import CameraUpdater from "./helper/CameraUpdater";
 
 export default function App() {
+  const [cameraAngles, setCameraAngles] = useState({
+    x: 10,
+    y: 3.5,
+    z: 25,
+  });
+
+  console.log(cameraAngles);
+
   return (
-    <Canvas camera={{ position: [10, 3.5, 25], fov: 30 }}>
-      <Perf position="bottom-left" />
+    <Canvas
+      camera={{
+        position: [cameraAngles.x, cameraAngles.y, cameraAngles.z],
+        fov: 30,
+      }}>
+      {/* <Perf position="bottom-left" /> */}
 
       <Suspense>
-        <Scene />
+        <Scene setCameraAngles={setCameraAngles} />
         <Environment
           files="/background/background.hdr"
           background
@@ -19,7 +32,8 @@ export default function App() {
           backgroundRotation={[0, Math.PI / 1.4, 0]}
         />
       </Suspense>
-      <OrbitControls enabled={true} />
+      <CameraUpdater cameraAngles={cameraAngles} />
+      <OrbitControls enabled={false} />
     </Canvas>
   );
 }
