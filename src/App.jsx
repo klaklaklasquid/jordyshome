@@ -5,7 +5,7 @@ import Scene from "./Scene";
 
 export default function App() {
   return (
-    <Canvas camera={{ position: [12, 6, 28], fov: 30 }}>
+    <Canvas camera={{ position: [12, 7, 25], fov: 30 }}>
       <Suspense>
         <Scene />
         <Environment
