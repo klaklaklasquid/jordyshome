@@ -7,7 +7,7 @@ import Scene from "./Scene";
 export default function App() {
   return (
     <Canvas camera={{ position: [10, 3.5, 25], fov: 30 }}>
-      <Perf position="top-left" />
+      <Perf position="bottom-left" />
 
       <Suspense>
         <Scene />

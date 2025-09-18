@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --font-family: "Roboto", sans-serif;
+}
+
 *,
 *::after,
 *::before {
@@ -13,8 +19,47 @@ body,
   width: 100%;
   height: 100%;
   overflow: hidden;
+  font-family: var(--font-family);
 }
 
 canvas {
   display: block;
+}
+
+.question__box {
+  width: 200px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 2rem;
+  padding: 3rem 5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  & p {
+    font-size: 2rem;
+  }
+
+  & span {
+    color: orangered;
+    letter-spacing: 1px;
+  }
+
+  & button {
+    padding: 2rem 0;
+    border: none;
+    border-radius: 1rem;
+    font-size: 2rem;
+    background-color: rgba(255, 69, 0, 0.5);
+    color: white;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: rgba(255, 69, 0, 1);
+    }
+
+    &:active {
+      background-color: rgba(255, 69, 0, 1);
+    }
+  }
 }
