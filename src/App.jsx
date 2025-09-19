@@ -1,30 +1,20 @@
 import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Environment } from "@react-three/drei";
 import { Suspense, useState } from "react";
-// import { Perf } from "r3f-perf";
 import Scene from "./Scene";
-import CameraUpdater from "./helper/CameraUpdater";
 import CameraSmooth from "./helper/CameraSmooth";
 
 export default function App() {
-  const [cameraAngles, setCameraAngles] = useState({
-    x: 10,
-    y: 3.5,
-    z: 25,
-  });
-
-  console.log(cameraAngles);
+  const [lookAtMode, setLookAtMode] = useState("interactive");
 
   return (
     <Canvas
       camera={{
-        position: [cameraAngles.x, cameraAngles.y, cameraAngles.z],
+        position: [10, 3.5, 25],
         fov: 30,
       }}>
-      {/* <Perf position="bottom-left" /> */}
-
       <Suspense>
-        <Scene setCameraAngles={setCameraAngles} />
+        <Scene setLookAtMode={setLookAtMode} />
         <Environment
           files="/background/background.hdr"
           background
@@ -34,10 +24,7 @@ export default function App() {
         />
       </Suspense>
 
-      <CameraUpdater cameraAngles={cameraAngles} />
-
-      <CameraSmooth />
-      <OrbitControls enabled={false} />
+      <CameraSmooth enabled={lookAtMode === "interactive"} />
     </Canvas>
   );
 }
