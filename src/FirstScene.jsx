@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { useThree, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-function Scene({ setLookAtMode, setIsLoading }) {
+function FirstScene({ setLookAtMode, setIsLoading }) {
   const [showButton, setShowButton] = useState(true);
   const { camera } = useThree();
   const lookAtTarget = useRef(new THREE.Vector3(0, 2, 0));
@@ -64,4 +64,4 @@ function Scene({ setLookAtMode, setIsLoading }) {
   );
 }
 
-export default Scene;
+export default FirstScene;
