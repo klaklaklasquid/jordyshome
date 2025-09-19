@@ -33,6 +33,11 @@ function Loader({ isLoading, setSceneActive, setIsLoading }) {
     } else {
       //* stop spawning, then fade out the whole loader after a short time
       clearInterval(spawnRef.current);
+      gsap.to(containerRef.current, {
+        backgroundColor: "transparent",
+        duration: 3,
+        ease: "power2.in",
+      });
       setTimeout(() => {
         if (!containerRef.current) return;
 
@@ -48,7 +53,7 @@ function Loader({ isLoading, setSceneActive, setIsLoading }) {
             setIsLoading(false);
           },
         });
-      }, 500);
+      }, 5000);
     }
 
     return () => clearInterval(spawnRef.current);
@@ -56,7 +61,7 @@ function Loader({ isLoading, setSceneActive, setIsLoading }) {
 
   return (
     <section id="loader" ref={containerRef}>
-      <h1 className="loader-text">Loading…</h1>
+      {/* <h1 className="loader-text">Loading…</h1> */}
     </section>
   );
 }
