@@ -1,17 +1,29 @@
 import * as THREE from "three";
 import { useGLTF } from "@react-three/drei";
 
-import vertexShader from "./shaders/windowShader/vertex.glsl";
-import fragmentShader from "./shaders/windowShader/fragment.glsl";
+import windowVertexShader from "./shaders/windowShader/vertex.glsl";
+import windowFragmentShader from "./shaders/windowShader/fragment.glsl";
+
+import doorVertexShader from "./shaders/doorShader/vertex.glsl";
+import doorFragmentShader from "./shaders/doorShader/fragment.glsl";
 
 export default function HouseOutside(props) {
-  const { nodes, scene } = useGLTF("/models/house11.glb");
+  const { nodes, scene } = useGLTF("/models/house14.glb");
 
   const windowMaterial = new THREE.ShaderMaterial({
-    vertexShader,
-    fragmentShader,
+    vertexShader: windowVertexShader,
+    fragmentShader: windowFragmentShader,
     uniforms: {
       uColor: { value: new THREE.Color("#8dcae9") },
+    },
+    transparent: true,
+  });
+
+  const doorMaterial = new THREE.ShaderMaterial({
+    vertexShader: doorVertexShader,
+    fragmentShader: doorFragmentShader,
+    uniforms: {
+      uColor: { value: new THREE.Color("#181818") },
     },
     transparent: true,
   });
@@ -20,6 +32,12 @@ export default function HouseOutside(props) {
     nodes.windows.material = windowMaterial;
   } else {
     console.warn("⚠️ No mesh called 'windows' found in model");
+  }
+
+  if (nodes.entranceDoorShader) {
+    nodes.entranceDoorShader.material = doorMaterial;
+  } else {
+    console.warn("⚠️ No mesh called 'entranceDoor' found in model");
   }
 
   return (
@@ -33,4 +51,4 @@ export default function HouseOutside(props) {
   );
 }
 
-useGLTF.preload("/models/house11.glb");
+useGLTF.preload("/models/house14.glb");

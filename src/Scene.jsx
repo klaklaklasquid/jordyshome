@@ -24,7 +24,7 @@ function Scene({ setLookAtMode }) {
 
     gsap.to(camera.position, {
       x: -1,
-      y: 2,
+      y: 1.5,
       z: 25,
       duration: 0.7,
       ease: "power2.inOut",
@@ -41,10 +41,6 @@ function Scene({ setLookAtMode }) {
           y: 1,
           duration: 0.7,
           ease: "power2.inOut",
-          onUpdate: () => {},
-          onComplete: () => {
-            setLookAtMode("interactive");
-          },
         });
       },
     });
