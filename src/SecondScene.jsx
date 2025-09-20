@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 function SecondScene() {
   const { camera } = useThree();
-  const { scene } = useGLTF("/models/insideHouse2.glb");
+  const { scene } = useGLTF("/models/insideHouse5.glb");
 
   //* to re-align the camera
   gsap.to(camera.position, {
@@ -34,6 +34,6 @@ function SecondScene() {
   );
 }
 
-useGLTF.preload("/models/insideHouse2.glb");
+useGLTF.preload("/models/insideHouse5.glb");
 
 export default SecondScene;
