@@ -42,7 +42,9 @@ export default function App() {
           />
         </Suspense>
 
-        <CameraSmooth enabled={lookAtMode === "interactive"} />
+        <CameraSmooth
+          enabled={lookAtMode === "interactive" && sceneActive === "firstScene"}
+        />
       </Canvas>
     </>
   );
