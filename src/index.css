@@ -48,8 +48,7 @@ canvas {
 .stripe {
   border-radius: 9999px;
   pointer-events: none;
-  width: 150vw;
-  height: 10rem;
+  height: 15rem;
   position: absolute;
   left: 0;
   right: 0;

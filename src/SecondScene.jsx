@@ -6,13 +6,13 @@ function SecondScene() {
   const { camera } = useThree();
   const cubeRef = useRef();
 
+  //* to re-align the camera
   gsap.to(camera.position, {
     x: 0,
     y: 0,
     z: 5,
     duration: 0.5,
     onUpdate: () => camera.lookAt(0, 0, 0),
-    onComplete: () => console.log("u dikke moeder"),
   });
 
   useFrame((_, delta) => {

@@ -11,6 +11,8 @@ function createStripe(container) {
   const lightness = 40 + Math.random() * 25;
   stripe.style.backgroundColor = `hsl(${hue}, 80%, ${lightness}%)`;
 
+  stripe.style.width = window.innerWidth;
+
   container.appendChild(stripe);
 
   //* fixed 45 degrees down-right
