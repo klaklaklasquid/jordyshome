@@ -37,7 +37,7 @@ export default function App() {
             files="/background/background.hdr"
             background
             backgroundIntensity={0.15}
-            environmentIntensity={0.7}
+            environmentIntensity={0.5}
             backgroundRotation={[0, Math.PI / 1.4, 0]}
           />
         </Suspense>

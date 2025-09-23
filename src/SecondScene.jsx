@@ -5,7 +5,7 @@ import * as THREE from "three";
 
 function SecondScene() {
   const { camera } = useThree();
-  const { nodes, scene } = useGLTF("/models/insideHouse9.glb");
+  const { nodes, scene } = useGLTF("/models/insideHouse10.glb");
 
   //* to re-align the camera
   //! this is also the reason orbitcontrol is not working
@@ -22,7 +22,7 @@ function SecondScene() {
   // });
 
   gsap.to(camera, {
-    fov: 70,
+    fov: 45,
     duration: 0.5,
     ease: "power3.inOut",
     onUpdate: () => camera.updateProjectionMatrix(),
@@ -60,6 +60,6 @@ function SecondScene() {
   );
 }
 
-useGLTF.preload("/models/insideHouse9.glb");
+useGLTF.preload("/models/insideHouse10.glb");
 
 export default SecondScene;
