@@ -5,7 +5,7 @@ import * as THREE from "three";
 
 function SecondScene() {
   const { camera } = useThree();
-  const { nodes, scene } = useGLTF("/models/insideHouse10.glb");
+  const { nodes, scene } = useGLTF("/models/insideHouse11.glb");
 
   //* to re-align the camera
   //! this is also the reason orbitcontrol is not working
@@ -42,7 +42,7 @@ function SecondScene() {
   // Ensure repeating if floor is large
   Object.values(textures).forEach((tex) => {
     tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
-    tex.repeat.set(4, 4);
+    tex.repeat.set(2, 2);
   });
 
   if (nodes.floor) {
@@ -60,6 +60,6 @@ function SecondScene() {
   );
 }
 
-useGLTF.preload("/models/insideHouse10.glb");
+useGLTF.preload("/models/insideHouse11.glb");
 
 export default SecondScene;

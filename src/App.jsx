@@ -35,7 +35,7 @@ export default function App() {
           {sceneActive === "secondScene" && <SecondScene />}
           <Environment
             files="/background/background.hdr"
-            background
+            background={true}
             backgroundIntensity={0.15}
             environmentIntensity={0.5}
             backgroundRotation={[0, Math.PI / 1.4, 0]}
